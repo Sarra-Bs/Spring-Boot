@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.websocket.server.PathParam;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -28,5 +29,10 @@ public class GreetingController {
 		return greetingService.getAllGreeting();
 	}
 
+	@GetMapping("/greetings/{lastName}")
+	public Greeting searchGreeting(@PathVariable String lastName) throws IOException {
+
+		return greetingService.searchGreeting(lastName);
+	}
 
 }

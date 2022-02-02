@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class GreetingService {
@@ -39,9 +40,16 @@ public class GreetingService {
         }
     return greetings;
 }
-public Greeting searchGreeting(String lastName){
+public Greeting searchGreeting(String lastName) throws IOException {
 
+        greetings=  getAllGreeting();
 
+        for (Greeting greeting1 :greetings) {
+            if (lastName.equals(greeting1.getLastName())) {
+                greeting= greeting1;
+            }
+
+        }
         return greeting;
 }
 
