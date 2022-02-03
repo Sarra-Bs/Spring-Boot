@@ -20,17 +20,12 @@ import java.util.List;
 public class GreetingController {
 
 	@Autowired
-	private GreetingService greetingService;
+	private static GreetingService greetingService;
 
 
-	@GetMapping("/greetings")
-	public List<Greeting> getGreetings() throws IOException {
-
-		return greetingService.getAllGreeting();
-	}
 
 	@GetMapping("/greetings/{lastName}")
-	public Greeting searchGreeting(@PathVariable String lastName) throws IOException {
+	public static List<Greeting> searchGreeting(@PathVariable String lastName) throws IOException {
 
 		return greetingService.searchGreeting(lastName);
 	}
