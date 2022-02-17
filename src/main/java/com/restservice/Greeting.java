@@ -1,49 +1,68 @@
 package com.restservice;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
 public class Greeting {
 
-	private  final long id;
-	private  final String firstName;
-	private final  String lastName;
-	private final String email;
-	private final String gender;
-	private final String ip_address;
+    private int id;
 
-	public Greeting(long id, String firstName,String lastName,String email,String gender,String ip_address){
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.gender = gender;
-		this.ip_address = ip_address;
+    private String firstName;
 
-	}
-	public Greeting(JsonNode jsonNode){
-		   this(jsonNode.get("id").asLong(),jsonNode.get("first_name").asText(),jsonNode.get("last_name").asText(),jsonNode.get("email").asText(),jsonNode.get("gender").asText(), jsonNode.get("ip_address").asText());
-	}
+    private String lastName;
+
+    private String email;
+
+    private String gender;
+
+    private String ipAddress;
 
 
+    public int getId() {
+        return id;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public String getGender() {
-		return gender;
-	}
-	public String getIp_address() {
-		return ip_address;
-	}
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
 }

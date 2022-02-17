@@ -19,15 +19,14 @@ import java.util.List;
 @RestController
 public class GreetingController {
 
-	@Autowired
-	private static GreetingService greetingService;
+    @Autowired
+    private GreetingService greetingService;
 
 
+    @GetMapping("/greetings/{lastName}")
+    public List<Greeting> searchGreeting(@PathVariable String lastName) throws IOException {
 
-	@GetMapping("/greetings/{lastName}")
-	public static List<Greeting> searchGreeting(@PathVariable String lastName) throws IOException {
-
-		return greetingService.searchGreeting(lastName);
-	}
+        return greetingService.searchGreeting(lastName);
+    }
 
 }
